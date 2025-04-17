@@ -29,3 +29,10 @@ A simple yet powerful Telegram bot that fetches the current gold price and sends
 ```bash
 git clone https://github.com/aman-bits-pilani/gold-price-bot.git
 cd gold-price-bot
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
