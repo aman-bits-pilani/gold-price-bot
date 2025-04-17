@@ -55,12 +55,16 @@ https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
 ```
 -Look for ```"chat":{"id":}``` in the JSON response.
 
+---
+
 ## 🔐 Add GitHub Secrets
 
 - Go to your repo → Settings → Secrets and Variables → Actions:
 - Name | Value
 - TELEGRAM_TOKEN | Your Telegram bot token
 - CHAT_ID | Your chat ID from Telegram
+
+---
 
 ## 🧪 Run Locally
 
@@ -69,6 +73,8 @@ python gold_price_script.py
 ```
 
 - This will fetch the current gold price and send it to your Telegram chat.
+
+---
 
 ## ⚙️ GitHub Actions Workflow
 
@@ -80,6 +86,8 @@ python gold_price_script.py
 - ⏰ **Scheduled:** Daily at 11:00 AM IST (30 5 * * * UTC)
 - 🔘 **Manual:** via GitHub → Actions → Run workflow
 
+---
+
 ## 📁 Project Structure
 
 ```bash
@@ -90,3 +98,4 @@ python gold_price_script.py
     └── workflows/
         └── gold_price.yml   # GitHub Actions workflow
 ```
+---
