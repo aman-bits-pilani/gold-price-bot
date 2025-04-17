@@ -53,16 +53,20 @@ Save the bot token provided.
 ```bash
 https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
 ```
--Look for ```"chat":{"id":}``` in the JSON response.
+> Look for ```"chat":{"id":}``` in the JSON response.
 
 ---
 
 ## 🔐 Add GitHub Secrets
 
-- Go to your repo → Settings → Secrets and Variables → Actions:
-- Name | Value
-- TELEGRAM_TOKEN | Your Telegram bot token
-- CHAT_ID | Your chat ID from Telegram
+Navigate to your GitHub repository → **Settings** → **Secrets and Variables** → **Actions**, and add the following secrets:
+
+| Name           | Value                      |
+|----------------|----------------------------|
+| `TELEGRAM_TOKEN` | Your Telegram bot token    |
+| `CHAT_ID`        | Your chat ID from Telegram |
+
+> ⚠️ These secrets will be used securely in your GitHub Actions workflow to authenticate with the Telegram Bot API.
 
 ---
 
@@ -71,14 +75,13 @@ https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
 ```bash
 python gold_price_script.py
 ```
-
-- This will fetch the current gold price and send it to your Telegram chat.
+>This will fetch the current gold price and send it to your Telegram chat.
 
 ---
 
 ## ⚙️ GitHub Actions Workflow
 
-- The automation is defined in:
+The automation is defined in:
 ```bash
 .github/workflows/gold_price.yaml
 ```
@@ -96,6 +99,6 @@ python gold_price_script.py
 ├── requirements.txt         # Python dependencies
 └── .github/
     └── workflows/
-        └── gold_price.yml   # GitHub Actions workflow
+        └── gold_price.yaml   # GitHub Actions workflow
 ```
 ---
