@@ -45,10 +45,11 @@ Send /newbot and follow the instructions.
 Save the bot token provided.
 ```
 
-### 4️⃣ Get Your Chat ID
+## 4️⃣ Get Your Chat ID
 
 -Send a message to your new bot.
 -Open in browser:
+
 ```bash
 https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
 ```
