@@ -1,4 +1,5 @@
 import asyncio
+import os
 from selenium import webdriver 
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -7,9 +8,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 from telegram import Bot
 
-# Replace with your bot token and chat ID
-TELEGRAM_TOKEN = "8176364398:AAE6gXKfq8pPqySKoTrPIs5zHZ4O0hvmP-8"
-CHAT_ID = "1771038704"  # Your chat ID
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
 
 async def send_to_telegram(price):
     bot = Bot(token=TELEGRAM_TOKEN)
