@@ -36,3 +36,20 @@ cd gold-price-bot
 ```bash
 pip install -r requirements.txt
 ```
+
+### 3️⃣ Create Your Telegram Bot
+
+```bash
+Search @BotFather in Telegram.
+Send /newbot and follow the instructions.
+Save the bot token provided.
+```
+
+### 4️⃣ Get Your Chat ID
+
+-Send a message to your new bot.
+-Open in browser:
+```bash
+https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
+```
+-Look for ```"chat":{"id":}``` in the JSON response.
