@@ -102,3 +102,12 @@ The automation is defined in:
         └── gold_price.yaml   # GitHub Actions workflow
 ```
 ---
+
+## 🙋‍♂️ Contributing
+- Fork this repo
+- Create a new branch: ```git checkout -b feature-name```
+- Make your changes and commit
+- Push to your fork: ```git push origin feature-name```
+- Submit a pull request 🚀
+
+---
