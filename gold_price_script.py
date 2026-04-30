@@ -19,34 +19,25 @@ def send_to_telegram(price: str) -> None:
     )
 
 def get_gold_price() -> None:
-    """Open site, click Submit, scrape price, notify Telegram."""
     opts = Options()
-    opts.add_argument("--headless=new")
+    opts.add_argument("--headless")
     opts.add_argument("--no-sandbox")
     opts.add_argument("--disable-dev-shm-usage")
 
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=opts
-    )
+    driver = webdriver.Chrome(options=opts)
     wait = WebDriverWait(driver, 20)
 
     try:
-        driver.get("https://www.malabargoldanddiamonds.com/goldprice")
+        driver.get("https://www.malabargoldanddiamonds.com/in/pan-india/en/live-gold-rate.html")
 
-        # 1️⃣  Wait for the Submit button, then click it
-        submit_btn = wait.until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "button.submit.gold-rate-btn"))
+        # Wait until 22K label is visible
+        price_element = wait.until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//div[contains(text(),'22k') or contains(text(),'22K')]/following::*[contains(text(),'INR')]")
+            )
         )
-        submit_btn.click()
 
-        # 2️⃣  Wait until the 22 K price span contains non‑empty text
-        price_span = wait.until(
-            lambda d: (
-                p := d.find_element(By.XPATH, "//span[@class='price 22kt-price']")
-            ).text.strip() and p
-        )
-        price = price_span.text.strip()
+        price = price_element.text.strip()
 
         print(f"Gold Price: {price}")
         send_to_telegram(price)
